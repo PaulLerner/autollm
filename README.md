@@ -1,7 +1,11 @@
 # autollm
 Easy data distillation of LLMs for text classification, information extraction, and open-ended tasks
 
-`autollm` is designed in an AutoML fashion, i.e. input your data, you get a trained model via ChatGPT (or another LLM) annotations
+`autollm` works like any AutoML libraries you would expect: input data, you get a trained model. 
+The twist is that you don’t have to provide annotations along with the data, 
+it is annotated automatically by an LLM (e.g. ChatGPT). 
+The second twist is that you don’t even have to provide data: 
+a meta-task of `autollm` is to detect relevant documents from large corpora (e.g. CommonCrawl).
 
 # Motivation
 Since the release of ChatGPT, a large body of work in academia and industry have revolved around 
