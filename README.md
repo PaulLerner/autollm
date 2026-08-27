@@ -12,6 +12,8 @@ collecting more than enough data to train a compact model that will cost a 100th
 # Similar libraries
 TODO
 
+- [DistillKit](https://github.com/arcee-ai/DistillKit) not "autoML" style, more of a technical toolkit/framework for knowledge distillation (from logits)
+
 # Roadmap
 TODO link each with issues
 
@@ -20,7 +22,11 @@ TODO link each with issues
     - needs input text + prompt including labels
     - the task might be to detect relevant texts for the downstream task from a large-scale corpora (e.g. [fineweb-edu](https://huggingface.co/datasets/HuggingFaceFW/fineweb-edu))
 - distill: train a compact model on the annotated dataset
-  - using lightning or transformers or KTransformers?
+  - implement using one of the following framework:
+    - lightning
+    - transformers
+    - KTransformers
+    - [peft](https://huggingface.co/docs/peft/index)
   - for text classification: pick encoder models
     - get list from transformers automodel?
     - option for language (defaults multimodal)
