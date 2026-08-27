@@ -23,6 +23,9 @@ TODO link each with issues
   - for text classification
     - needs input text + prompt including labels
     - the task might be to detect relevant texts for the downstream task from a large-scale corpora (e.g. [fineweb-edu](https://huggingface.co/datasets/HuggingFaceFW/fineweb-edu))
+  - implement using one of the following framework:
+    - https://docs.vllm.ai/en/latest/api/vllm/index.html
+    - https://developers.openai.com/api/docs/guides/structured-outputs#how-to-use
 - distill: train a compact model on the annotated dataset
   - implement using one of the following framework:
     - lightning
@@ -35,5 +38,6 @@ TODO link each with issues
   - for sequence tagging: also encoder but token-wise classifier
   - for open-ended: most likely decoder-only (or encoder-decoder?)
   - also accept pre-annotated dataset (not from `autollm`)
+  - benchmark to compare against a human-engineered fine-tuning
 - GUI
 - deploy on server so that user doesn't need local compute
