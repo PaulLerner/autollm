@@ -1,6 +1,8 @@
 # autollm
 Easy data distillation of LLMs for text classification, information extraction, and open-ended tasks
 
+`autollm` is designed in an AutoML fashion, i.e. input your data, you get a trained model via ChatGPT (or another LLM) annotations
+
 # Motivation
 Since the release of ChatGPT, a large body of work in academia and industry have revolved around 
 distilling general-purpose but compute-intensive LLMs (e.g. ChatGPT) 
