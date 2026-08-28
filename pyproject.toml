@@ -1,5 +1,5 @@
 [project]
-name = "autollm"
+name = "automl-llm"
 version = "0.1.0"
 description = "Easy data distillation of LLMs for text classification, information extraction, and open-ended tasks"
 readme = "README.md"
