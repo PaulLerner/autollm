@@ -24,18 +24,24 @@ TODO
 TODO link each with issues
 
 - annotate: annotate text with an OpenAI-compatible API
-  - for text classification
-    - needs input text + prompt including labels
-    - the task might be to detect relevant texts for the downstream task from a large-scale corpora (e.g. [fineweb-edu](https://huggingface.co/datasets/HuggingFaceFW/fineweb-edu))
-  - implement using one of the following framework:
+  - the task might be to detect relevant texts for the downstream task from a large-scale corpora 
+    (e.g. [fineweb-edu](https://huggingface.co/datasets/HuggingFaceFW/fineweb-edu))
+  - benchmark: 
+    - accuracy of annotation against existing human annotations
+      - sklearn metrics?
+      - hf metrics?
+      - lightning metrics?
+  - for information extraction: again use https://developers.openai.com/api/docs/guides/structured-outputs ? so single ClassifierIE class?
+  - for open-ended tasks: use https://developers.openai.com/api
+  - also provide alternative models
+    - claude
+    - gemini
     - https://docs.vllm.ai/en/latest/api/vllm/index.html
-    - https://developers.openai.com/api/docs/guides/structured-outputs#how-to-use
 - distill: train a compact model on the annotated dataset
   - implement using one of the following framework:
     - lightning
     - transformers
     - KTransformers
-    - [peft](https://huggingface.co/docs/peft/index)
   - for text classification: pick encoder models
     - get list from transformers automodel?
     - option for language (defaults multimodal)
@@ -43,5 +49,6 @@ TODO link each with issues
   - for open-ended: most likely decoder-only (or encoder-decoder?)
   - also accept pre-annotated dataset (not from `autollm`)
   - benchmark to compare against a human-engineered fine-tuning
+    - GLUE
 - GUI
 - deploy on server so that user doesn't need local compute
