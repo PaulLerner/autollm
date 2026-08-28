@@ -27,10 +27,7 @@ TODO link each with issues
   - the task might be to detect relevant texts for the downstream task from a large-scale corpora 
     (e.g. [fineweb-edu](https://huggingface.co/datasets/HuggingFaceFW/fineweb-edu))
   - benchmark: 
-    - accuracy of annotation against existing human annotations
-      - sklearn metrics?
-      - hf metrics?
-      - lightning metrics?
+    - accuracy of annotation against existing human annotations using sklearn metrics
   - for information extraction: again use https://developers.openai.com/api/docs/guides/structured-outputs ? so single ClassifierIE class?
   - for open-ended tasks: use https://developers.openai.com/api
   - also provide alternative models
@@ -38,10 +35,7 @@ TODO link each with issues
     - gemini
     - https://docs.vllm.ai/en/latest/api/vllm/index.html
 - distill: train a compact model on the annotated dataset
-  - implement using one of the following framework:
-    - lightning
-    - transformers
-    - KTransformers
+  - implement using transformers
   - for text classification: pick encoder models
     - get list from transformers automodel?
     - option for language (defaults multimodal)
