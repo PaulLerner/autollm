@@ -16,7 +16,7 @@ class Classifier:
     def __init__(self, classes: List[str], system_prompt: str = "Classify each text into exactly one category.", model_name: str = "gpt-5.6-luna"):
 
         class ClassificationResult(pydantic.BaseModel):
-            category: Literal[*classes]
+            category: Literal[*classes] # type: ignore
 
         self.text_format = ClassificationResult
         self.client = openai.OpenAI()
