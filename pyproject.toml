@@ -1,7 +1,7 @@
 [project]
 name = "autollm"
 version = "0.1.0"
-description = "Add your description here"
+description = "Easy data distillation of LLMs for text classification, information extraction, and open-ended tasks"
 readme = "README.md"
 requires-python = ">=3.14"
 dependencies = [
@@ -14,3 +14,12 @@ dependencies = [
     "torch>=2.13.0",
     "transformers>=5.16.1",
 ]
+authors = [
+  {name = "Paul Lerner"}
+]
+license = "MIT"
+license-files = ["LICENSE"]
+[project.urls]
+Homepage = "https://github.com/PaulLerner/autollm"
+[tool.uv]
+package = true
