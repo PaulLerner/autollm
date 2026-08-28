@@ -7,7 +7,32 @@ it is annotated automatically by an LLM (e.g. ChatGPT).
 The second twist is that you don’t even have to provide data: 
 a meta-task of `autollm` is to detect relevant documents from large corpora (e.g. CommonCrawl).
 
-# Motivation
+## Installation
+
+### via pip
+`pip install automl-llm`
+
+### via uv
+`uv add automl-llm`
+
+### editable
+```bash
+git clone https://github.com/PaulLerner/autollm.git
+cd autollm
+uv sync
+```
+
+## Annotation
+```bash
+OPENAI_API_KEY="your-api-key" python -m autollm.annotate --dataset_path=nyu-mll/glue --dataset_name=wnli --input_columns+=sentence1 --input_columns+=sentence2 --classes+=entailment --classes+=not_entailment
+```
+
+## Distillation
+```bash
+python -m autollm.distill glue --input_columns+=sentence1 --input_columns+=sentence2 --classes+=entailment --classes+=not_entailment
+```
+
+## Motivation
 Since the release of ChatGPT, a large body of work in academia and industry have revolved around 
 distilling general-purpose but compute-intensive LLMs (e.g. ChatGPT) 
 into task-specific but compact classifiers (e.g. [fineweb-edu](https://huggingface.co/datasets/HuggingFaceFW/fineweb-edu)) or LLMs (e.g. [NuExtract3](https://huggingface.co/numind/NuExtract3)).
@@ -15,12 +40,11 @@ into task-specific but compact classifiers (e.g. [fineweb-edu](https://huggingfa
 The industrial benefit is obvious, your company pays a monthly subscription for six months, 
 collecting more than enough data to train a compact model that will cost a 100th of the price while keeping all data local.
 
-# Similar libraries
-TODO
+## Similar libraries
 
 - [DistillKit](https://github.com/arcee-ai/DistillKit) not "autoML" style, more of a technical toolkit/framework for knowledge distillation (from logits)
 
-# Roadmap
+## Roadmap
 TODO link each with issues
 
 - annotate: annotate text with an OpenAI-compatible API
@@ -35,10 +59,8 @@ TODO link each with issues
     - gemini
     - https://docs.vllm.ai/en/latest/api/vllm/index.html
 - distill: train a compact model on the annotated dataset
-  - implement using transformers
-  - for text classification: pick encoder models
-    - get list from transformers automodel?
-    - option for language (defaults multimodal)
+  - get list from transformers automodel?
+  - option for language (defaults multimodal)
   - for sequence tagging: also encoder but token-wise classifier
   - for open-ended: most likely decoder-only (or encoder-decoder?)
   - also accept pre-annotated dataset (not from `autollm`)
@@ -46,3 +68,19 @@ TODO link each with issues
     - GLUE
 - GUI
 - deploy on server so that user doesn't need local compute
+
+## Contributing
+Feel free to open an issue or PR to contribute. 
+The roadmap will probably never happen without your help :)
+
+### Building
+Use:
+- `uv version --bump patch` for `1.2.3 => 1.2.4`
+- `uv version --bump minor` for `1.2.3 => 1.3.0`
+- `uv version --bump major` for `1.2.3 => 2.0.0`
+
+Then
+```bash
+uv build
+uv publish --token=<TOKEN>
+```
