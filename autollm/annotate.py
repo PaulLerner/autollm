@@ -61,6 +61,7 @@ def main(dataset_path: str, input_columns: List[str], classes: List[str],
         dataset.save_to_disk(output_path)
     else:
         dataset.save_to_disk(dataset_path.split("/")[-1])
+    # TODO option to push_to_hub
 
 
 if __name__ == "__main__":
